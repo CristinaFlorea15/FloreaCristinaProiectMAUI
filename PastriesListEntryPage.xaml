@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FloreaCristinaProiect.PastriesListEntryPage"
+             Title="PastriesListEntryPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add Pastries to the List"
+                     Clicked="OnPastriesListAddedClicked" />
+    </ContentPage.ToolbarItems>
+
+    <ListView x:Name="listView"
+              Margin="20"
+              ItemSelected="OnListViewItemSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <!-- Main Horizontal Layout -->
+                    <StackLayout Orientation="Horizontal" Padding="10">
+                        <!-- Image on the Left -->
+                        <Image Source="{Binding PastriesImage}" 
+                       HeightRequest="100" 
+                       WidthRequest="100" 
+                       Aspect="AspectFill" 
+                       Margin="0,0,10,0" />
+
+                        <!-- Text Details on the Right -->
+                        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+                            <!-- Pastry Name -->
+                            <Label Text="{Binding Name}" 
+                                FontAttributes="Bold"
+                                FontSize="18" />
+                            <!-- Pastry Description -->
+                            <Label Text="{Binding Description}" 
+                                FontSize="14" />
+                            <!-- Ingredients -->
+                            <Label Text="Ingredients: {Binding Ingredients}" 
+                                FontSize="14" 
+                                TextColor="Gray" />
+                            <!-- Price -->
+                            <Label Text="Price: {Binding Price} $"
+                                FontSize="14" 
+                                TextColor="Green" />
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+
+    </ListView>
+</ContentPage>

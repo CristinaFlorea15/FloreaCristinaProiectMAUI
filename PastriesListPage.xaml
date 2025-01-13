@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FloreaCristinaProiect.PastriesListPage"
+             Title="PastriesListPage">
+    <StackLayout Margin="20">
+        <!-- Name -->
+        <Editor Placeholder="Enter the name of the Pastry"
+                Text="{Binding Name}"
+                HeightRequest="50" />
+
+        <!-- Description -->
+        <Editor Placeholder="Enter the description of the Pastry"
+                Text="{Binding Description}"
+                HeightRequest="100" />
+
+        <!-- Price -->
+        <Entry Placeholder="Enter the price of the Pastry"
+               Text="{Binding Price}"
+               Keyboard="Numeric" />
+
+        <!-- Ingredients -->
+        <Editor Placeholder="Enter the ingredients of the Pastry"
+                Text="{Binding Ingredients}"
+                HeightRequest="100" />
+
+        <!-- Insert Image Button -->
+        <Button Text="Insert Image"
+                Clicked="OnInsertImageButtonClicked" />
+
+        <!-- Action Buttons -->
+        <Grid Margin="0,20,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Text="Save"
+                    Clicked="OnSaveButtonClicked" />
+            <Button Grid.Column="1"
+                    Text="Delete"
+                    Clicked="OnDeleteButtonClicked" />
+        </Grid>
+    </StackLayout>
+
+</ContentPage>
