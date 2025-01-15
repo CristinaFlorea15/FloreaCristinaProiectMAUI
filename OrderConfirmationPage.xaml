@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FloreaCristinaProiect.OrderConfirmationPage"
+             Title="Order Confirmation">
+    <StackLayout Padding="20" VerticalOptions="Center">
+        <Label Text="Your order is on the way!" 
+               FontSize="24" 
+               HorizontalOptions="Center" 
+               FontAttributes="Bold" 
+               TextColor="Green" />
+    </StackLayout>
+</ContentPage>

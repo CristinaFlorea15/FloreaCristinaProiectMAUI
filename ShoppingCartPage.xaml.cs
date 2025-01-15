@@ -8,6 +8,7 @@ public partial class ShoppingCart : ContentPage
 {
     public ObservableCollection<ShoppingCartItem> CartItems { get; set; }
     public int TotalPrice => CartItems?.Sum(item => item.TotalPrice) ?? 0;
+    public string Address { get; set; }
 
     public Command<ShoppingCartItem> RemoveFromCartCommand { get; }
 
@@ -35,13 +36,17 @@ public partial class ShoppingCart : ContentPage
         OnPropertyChanged(nameof(TotalPrice));
     }
 
-    async void Checkout()
+     async void OnCheckoutClicked(object sender, EventArgs e)
     {
-        await DisplayAlert("Order Placed", "Your order has been successfully placed.", "OK");
-        await App.Database.ClearCartAsync();
-        CartItems.Clear();
-        OnPropertyChanged(nameof(CartItems));
-        OnPropertyChanged(nameof(TotalPrice));
+        // Validate Address
+        if (string.IsNullOrWhiteSpace(Address))
+        {
+            await DisplayAlert("Error", "Please provide a valid address before checking out.", "OK");
+            return;
+        }
+
+        // Navigate to the order confirmation page
+        await Navigation.PushAsync(new OrderConfirmationPage());
     }
 
     async void RemoveFromCart(object sender, EventArgs e)
@@ -60,6 +65,7 @@ public partial class ShoppingCart : ContentPage
             OnPropertyChanged(nameof(CartItems));
             OnPropertyChanged(nameof(TotalPrice));
         }
-    }
-}
 
+    }
+    
+}

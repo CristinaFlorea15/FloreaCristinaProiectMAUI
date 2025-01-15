@@ -20,6 +20,11 @@
 
             SemanticScreenReader.Announce(CounterBtn.Text);
         }
+        private async void OnCheckOutClicked(object sender, EventArgs e)
+        {
+            // Navigate to the Order Confirmation Page
+            await Navigation.PushAsync(new OrderConfirmationPage());
+        }
     }
 
 }

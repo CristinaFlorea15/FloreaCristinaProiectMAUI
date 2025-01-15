@@ -9,6 +9,19 @@
                FontSize="24" 
                FontAttributes="Bold"
                HorizontalOptions="Center" />
+        
+    <!--Adress input-->
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+            <Label Text="Address:"
+               FontSize="18"
+               VerticalOptions="Center"
+               HorizontalOptions="Start" />
+            <Entry Placeholder="Enter your address"
+               Text="{Binding Address}"
+               VerticalOptions="Center"
+               HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+        
 
         <!-- List of Cart Items -->
         <CollectionView ItemsSource="{Binding CartItems}" SelectionMode="None">
@@ -49,11 +62,15 @@
                FontSize="18" 
                HorizontalOptions="End" />
 
+        
         <!-- Checkout Button -->
         <Button Text="Checkout" 
-                Command="{Binding CheckoutCommand}" 
-                BackgroundColor="Purple" 
-                TextColor="White" 
-                FontAttributes="Bold" />
+            Clicked="OnCheckoutClicked" 
+            BackgroundColor="Purple" 
+            TextColor="White" 
+            FontAttributes="Bold" 
+            HorizontalOptions="Fill" 
+            HeightRequest="50" />
+
     </StackLayout>
 </ContentPage>
