@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FloreaCristinaProiect.ReviewsPage"
+             Title="Reviews">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add Review"
+                     Clicked="OnAddReviewClicked" />
+    </ContentPage.ToolbarItems>
+
+    <ListView x:Name="ReviewsListView"
+              Margin="20"
+              ItemsSource="{Binding Reviews}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid Padding="10" ColumnSpacing="10">
+                        <!-- Define Grid Columns -->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <!-- Name column -->
+                            <ColumnDefinition Width="3*" />
+                            <!-- Comment column -->
+                            <ColumnDefinition Width="1*" />
+                            <!-- Stars column -->
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Name as a Title -->
+                        <Label Grid.Column="0"
+                               Text="{Binding FullName}"
+                               FontAttributes="Bold"
+                               FontSize="18"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start" />
+
+                        <!-- Review Comment in the Center -->
+                        <Label Grid.Column="1"
+                               Text="{Binding Comment}"
+                               FontSize="14"
+                               TextColor="Gray"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center" />
+
+                        <!-- Stars on the Right -->
+                        <StackLayout Grid.Column="2"
+                                     Orientation="Horizontal"
+                                     Spacing="5"
+                                     VerticalOptions="Center"
+                                     HorizontalOptions="End">
+                            <Label Text="{Binding Stars}" 
+                                   FontSize="14" />
+                            <Label Text="⭐" 
+                                   TextColor="Gold"
+                                   FontSize="14" />
+                        </StackLayout>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

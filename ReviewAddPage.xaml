@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FloreaCristinaProiect.ReviewAddPage"
+             Title="Add/Edit Review">
+    <StackLayout Margin="20">
+        <!-- First Name -->
+        <Entry Placeholder="Enter your first name"
+               Text="{Binding FirstName}"
+               HeightRequest="50" />
+
+        <!-- Last Name -->
+        <Entry Placeholder="Enter your last name"
+               Text="{Binding LastName}"
+               HeightRequest="50" />
+
+        <!-- Rating -->
+        <Entry Placeholder="Enter a rating (1-5)"
+               Text="{Binding Stars}"
+               Keyboard="Numeric"
+               HeightRequest="50" />
+
+        <!-- Comment -->
+        <Editor Placeholder="Enter your review comment"
+                Text="{Binding Comment}"
+                HeightRequest="100" />
+
+        <!-- Action Buttons -->
+        <Grid Margin="0,20,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Text="Save"
+                    Clicked="OnSaveButtonClicked" />
+            <Button Grid.Column="1"
+                    Text="Delete"
+                    Clicked="OnDeleteButtonClicked"
+                    IsVisible="{Binding IsExisting, Converter={StaticResource BooleanToVisibilityConverter}}" />
+        </Grid>
+    </StackLayout>
+</ContentPage>

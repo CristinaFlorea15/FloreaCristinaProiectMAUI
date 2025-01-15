@@ -1,30 +1,27 @@
-﻿namespace FloreaCristinaProiect
+﻿namespace FloreaCristinaProiect;
+
+public partial class MainPage : ContentPage
 {
-    public partial class MainPage : ContentPage
+    public MainPage()
     {
-        int count = 0;
-
-        public MainPage()
-        {
-            InitializeComponent();
-        }
-
-        private void OnCounterClicked(object sender, EventArgs e)
-        {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
-        }
-        private async void OnCheckOutClicked(object sender, EventArgs e)
-        {
-            // Navigate to the Order Confirmation Page
-            await Navigation.PushAsync(new OrderConfirmationPage());
-        }
+        InitializeComponent();
     }
 
+    async void OnViewMenuListClicked(object sender, EventArgs e)
+    {
+        // Navigate to Menu List Page
+        await Navigation.PushAsync(new PastriesListEntryPage());
+    }
+
+    async void OnViewCartClicked(object sender, EventArgs e)
+    {
+        // Navigate to Shopping Cart Page
+        await Navigation.PushAsync(new ShoppingCart());
+    }
+
+    async void OnLeaveReviewClicked(object sender, EventArgs e)
+    {
+        // Navigate to Reviews Page
+        await Navigation.PushAsync(new ReviewsPage());
+    }
 }

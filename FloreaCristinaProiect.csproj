@@ -78,6 +78,12 @@
 	  <MauiXaml Update="PastriesListPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="ReviewAddPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Reviews.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="ShoppingCartPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

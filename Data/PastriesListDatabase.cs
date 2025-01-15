@@ -16,6 +16,7 @@ namespace FloreaCristinaProiect.Data
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<PastriesList>().Wait();
             _database.CreateTableAsync<ShoppingCartItem>().Wait(); // Ensure ShoppingCartItem table exists
+            _database.CreateTableAsync<Review>().Wait();
         }
 
         public Task<List<PastriesList>> GetPastriesListsAsync()
@@ -72,7 +73,22 @@ namespace FloreaCristinaProiect.Data
             return _database.DeleteAllAsync<ShoppingCartItem>();
         }
 
+        public Task<List<Review>> GetReviewsAsync()
+        {
+            return _database.Table<Review>().ToListAsync();
+        }
 
+        public Task<int> SaveReviewAsync(Review review)
+        {
+            return review.ID != 0
+                ? _database.UpdateAsync(review)
+                : _database.InsertAsync(review);
+        }
+
+        public Task<int> DeleteReviewAsync(Review review)
+        {
+            return _database.DeleteAsync(review);
+        }
 
     }
 }

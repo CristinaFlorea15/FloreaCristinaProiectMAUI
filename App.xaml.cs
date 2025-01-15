@@ -22,6 +22,7 @@ namespace FloreaCristinaProiect
         {
             InitializeComponent();
 
+
         }
 
         protected override Window CreateWindow(IActivationState? activationState)

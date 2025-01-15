@@ -12,10 +12,7 @@
             Title="Pastries Menu"
             ContentTemplate="{DataTemplate local:MainPage}"
         />
-        <ShellContent
-            Title="About"
-            ContentTemplate="{DataTemplate local:AboutPage}"
-        />
+        
         <ShellContent
             Title="Pastries List"
             ContentTemplate="{DataTemplate local:PastriesListEntryPage}"
@@ -24,6 +21,14 @@
         <ShellContent
             Title="Shopping Cart"
             ContentTemplate="{DataTemplate local:ShoppingCart}"
+        />
+        <ShellContent
+            Title="Reviews"
+            ContentTemplate="{DataTemplate local:ReviewsPage}"
+        />
+        <ShellContent
+            Title="About"
+            ContentTemplate="{DataTemplate local:AboutPage}"
         />
 
     </TabBar>
