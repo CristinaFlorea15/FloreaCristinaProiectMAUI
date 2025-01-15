@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FloreaCristinaProiect.ShoppingCart"
+             Title="ShoppingCart">
+
+    <StackLayout Padding="10" Spacing="20">
+        <Label Text="Your Cart" 
+               FontSize="24" 
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+
+        <!-- List of Cart Items -->
+        <CollectionView ItemsSource="{Binding CartItems}" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="100, *, 100, 100">
+                        <!-- Pastry Image -->
+                        <Image Source="{Binding PastriesImage}"
+                               Grid.Column="0"
+                               HeightRequest="100"
+                               WidthRequest="100"
+                               Aspect="AspectFill" />
+                        <!-- Pastry Details -->
+                        <StackLayout Grid.Column="1" Spacing="5">
+                            <Label Text="{Binding Name}" FontSize="18" FontAttributes="Bold" />
+                            <Label Text="{Binding Price, StringFormat='{}{0:C}'}" FontSize="18" Grid.Column="2" TextColor="Green"/>
+                            <Label Text="{Binding TotalPrice, StringFormat='Total: {0:C}'}" FontSize="16" TextColor="Green" />
+                        </StackLayout>
+                        <!-- Quantity Display -->
+                        <Label Text="{Binding Quantity}" 
+                               FontSize="18" 
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Grid.Column="2" />
+                        <!-- Remove Button -->
+                        <Button Text="Remove"
+                                Grid.Column="3"
+                                Clicked="RemoveFromCart"
+                                WidthRequest="100"
+                                HorizontalOptions="Center" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Total Price -->
+        <Label Text="{Binding TotalPrice, StringFormat='Total: {0:C}'}" 
+               FontSize="18" 
+               HorizontalOptions="End" />
+
+        <!-- Checkout Button -->
+        <Button Text="Checkout" 
+                Command="{Binding CheckoutCommand}" 
+                BackgroundColor="Purple" 
+                TextColor="White" 
+                FontAttributes="Bold" />
+    </StackLayout>
+</ContentPage>

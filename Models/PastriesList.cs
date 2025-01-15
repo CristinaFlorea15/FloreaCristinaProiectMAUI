@@ -26,6 +26,20 @@ namespace FloreaCristinaProiect.Models
         [MaxLength(5000)]
         public string PastriesImage { get; set; }
 
+        // Helper method to convert to ShoppingCartItem
+        public ShoppingCartItem ToCartItem(int quantity = 1)
+        {
+            return new ShoppingCartItem
+            {
+                PastryID = ID,
+                Name = Name,
+                Quantity = quantity,
+                Price = Price,
+                PastriesImage = PastriesImage
+            };
+        }
+
+
     }
 
 }

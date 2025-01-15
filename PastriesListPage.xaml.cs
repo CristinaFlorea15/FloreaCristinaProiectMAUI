@@ -1,4 +1,5 @@
 using FloreaCristinaProiect.Models;
+
 namespace FloreaCristinaProiect;
 
 public partial class PastriesListPage : ContentPage

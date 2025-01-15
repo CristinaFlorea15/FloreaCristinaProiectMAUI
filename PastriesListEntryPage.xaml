@@ -2,8 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FloreaCristinaProiect.PastriesListEntryPage"
-             Title="PastriesListEntryPage">
-
+             Title="Pastry Details">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add Pastries to the List"
                      Clicked="OnPastriesListAddedClicked" />
@@ -15,37 +14,54 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <!-- Main Horizontal Layout -->
-                    <StackLayout Orientation="Horizontal" Padding="10">
-                        <!-- Image on the Left -->
-                        <Image Source="{Binding PastriesImage}" 
-                       HeightRequest="100" 
-                       WidthRequest="100" 
-                       Aspect="AspectFill" 
-                       Margin="0,0,10,0" />
+                    <Grid Padding="10" ColumnSpacing="10">
+                        <!-- Define the Grid Columns -->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <!-- Image column -->
+                            <ColumnDefinition Width="*" />
+                            <!-- Pastry details column -->
+                            <ColumnDefinition Width="Auto" />
+                            <!-- Quantity and Add button column -->
+                        </Grid.ColumnDefinitions>
 
-                        <!-- Text Details on the Right -->
-                        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
-                            <!-- Pastry Name -->
-                            <Label Text="{Binding Name}" 
-                                FontAttributes="Bold"
-                                FontSize="18" />
-                            <!-- Pastry Description -->
-                            <Label Text="{Binding Description}" 
-                                FontSize="14" />
-                            <!-- Ingredients -->
-                            <Label Text="Ingredients: {Binding Ingredients}" 
-                                FontSize="14" 
-                                TextColor="Gray" />
-                            <!-- Price -->
-                            <Label Text="Price: {Binding Price} $"
-                                FontSize="14" 
-                                TextColor="Green" />
+                        <!-- Image in the first column -->
+                        <Image Source="{Binding PastriesImage}"
+                               Grid.Column="0"
+                               HeightRequest="100"
+                               WidthRequest="100"
+                               Aspect="AspectFill" />
+
+                        <!-- Pastry Details in the second column -->
+                        <StackLayout Grid.Column="1" Orientation="Vertical" Spacing="5">
+                            <Label Text="{Binding Name}"
+                                   FontAttributes="Bold"
+                                   FontSize="18" />
+                            <Label Text="{Binding Description}"
+                                   FontSize="14" />
+                            <Label Text="{Binding Ingredients}"
+                                   FontSize="14"
+                                   TextColor="Gray" />
+                            <Label Text="{Binding Price}" 
+                                   FontSize="14"
+                                   TextColor="Green" />
                         </StackLayout>
-                    </StackLayout>
+
+                        <!-- Quantity and Add button in the third column -->
+                        <StackLayout Grid.Column="2" Orientation="Vertical" Spacing="5" HorizontalOptions="Center">
+                            <Entry x:Name="QuantityEntry"
+                                   Placeholder="Quantity"
+                                   Keyboard="Numeric"
+                                   WidthRequest="100"
+                                   HorizontalOptions="Center" />
+                            <Button Text="Add"
+                                    Clicked="OnAddToCartClicked"
+                                    WidthRequest="100"
+                                    HorizontalOptions="Center" />
+                        </StackLayout>
+                    </Grid>
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
-
     </ListView>
 </ContentPage>

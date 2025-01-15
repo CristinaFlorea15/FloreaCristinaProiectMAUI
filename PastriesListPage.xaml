@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FloreaCristinaProiect.PastriesListPage"
              Title="PastriesListPage">
+
     <StackLayout Margin="20">
         <!-- Name -->
         <Editor Placeholder="Enter the name of the Pastry"

@@ -19,7 +19,13 @@
         <ShellContent
             Title="Pastries List"
             ContentTemplate="{DataTemplate local:PastriesListEntryPage}"
- />
+        />
+
+        <ShellContent
+            Title="Shopping Cart"
+            ContentTemplate="{DataTemplate local:ShoppingCart}"
+        />
+
     </TabBar>
 
 </Shell>
