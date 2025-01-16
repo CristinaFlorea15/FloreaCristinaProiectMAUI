@@ -34,5 +34,25 @@ namespace FloreaCristinaProiect
                 BindingContext = new Review()
             });
         }
+
+        async void OnDeleteReviewClicked(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            var reviewToDelete = button?.CommandParameter as Review;
+
+            if (reviewToDelete != null)
+            {
+                // Confirm deletion
+                var confirm = await DisplayAlert("Delete Review", "Are you sure you want to delete this review?", "Yes", "No");
+                if (confirm)
+                {
+                    // Remove from the database
+                    await App.Database.DeleteReviewAsync(reviewToDelete);
+
+                    // Remove from the local collection
+                    Reviews.Remove(reviewToDelete);
+                }
+            }
+        }
     }
 }

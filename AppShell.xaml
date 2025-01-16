@@ -9,7 +9,7 @@
 
     <TabBar>
         <ShellContent
-            Title="Pastries Menu"
+            Title="Pastries Menu" 
             ContentTemplate="{DataTemplate local:MainPage}"
         />
         
